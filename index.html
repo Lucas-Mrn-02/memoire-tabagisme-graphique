@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Évolution du tabagisme et communication sanitaire</title>
+<script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 30px;
+    background: #ffffff;
+    color: #111;
+}
+h1 {
+    font-size: 26px;
+}
+p {
+    line-height: 1.6;
+    max-width: 1000px;
+}
+#chart {
+    width: 100%;
+    height: 700px;
+}
+.legend-box {
+    margin-top: 25px;
+    border: 1px solid #ccc;
+    padding: 18px;
+    border-radius: 10px;
+    background: #fafafa;
+}
+.legend-box h2 {
+    margin-top: 0;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 10px;
+}
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background: #efefef;
+}
+.note {
+    margin-top: 25px;
+    font-size: 14px;
+}
+</style>
+</head>
+<body>
+
+<h1>Évolution du tabagisme et intensification des campagnes sanitaires</h1>
+
+<p>
+Ce graphique illustre l’évolution approximative de la prévalence du tabagisme
+(adultes fumeurs en pourcentage de la population adulte) dans plusieurs pays entre 1960 et 2020.
+Il permet de visualiser la lenteur relative des ajustements comportementaux malgré
+l’intensification progressive des connaissances médicales et des campagnes de prévention
+autour du tabac.
+</p>
+
+<div id="chart"></div>
+
+<div class="legend-box">
+<h2>Niveaux de communication sanitaire par décennie</h2>
+
+<table>
+<tr>
+<th>Décennie</th>
+<th>Niveau de communication et de prévention</th>
+</tr>
+
+<tr>
+<td>1950–1960</td>
+<td>Connaissances médicales encore limitées dans le grand public ; publicité massive pour le tabac ; très faible prévention institutionnelle.</td>
+</tr>
+
+<tr>
+<td>1960–1970</td>
+<td>Premières alertes sanitaires majeures (notamment rapport du Surgeon General américain en 1964) ; émergence progressive des débats publics.</td>
+</tr>
+
+<tr>
+<td>1970–1980</td>
+<td>Développement des avertissements sanitaires ; premières restrictions publicitaires ; diffusion plus large des risques cancérogènes.</td>
+</tr>
+
+<tr>
+<td>1980–1990</td>
+<td>Multiplication des campagnes de santé publique ; consolidation du lien tabac–cancer ; hausse des réglementations.</td>
+</tr>
+
+<tr>
+<td>1990–2000</td>
+<td>Institutionnalisation des politiques anti-tabac ; taxation accrue ; restrictions dans les espaces publics.</td>
+</tr>
+
+<tr>
+<td>2000–2010</td>
+<td>Campagnes visuelles fortes ; images choc ; politiques OMS MPOWER ; diffusion mondiale des messages de prévention.</td>
+</tr>
+
+<tr>
+<td>2010–2020</td>
+<td>Paquets neutres dans certains pays ; campagnes numériques ; forte médiatisation des risques ; prévention systématique.</td>
+</tr>
+
+</table>
+</div>
+
+<div class="note">
+<strong>Sources mobilisées :</strong> données approximatives synthétisées à partir des rapports de l’Organisation mondiale de la santé (OMS), de la Banque mondiale et des tendances historiques en santé publique sur la prévalence du tabagisme.
+Le graphique a une fonction illustrative et comparative destinée à accompagner une réflexion sur l’« intention-behaviour gap » et l’inertie comportementale.
+</div>
+
+<script>
+
+const years = [1960,1970,1980,1990,2000,2010,2020];
+
+const traces = [
+
+{
+x: years,
+y: [42,40,36,31,27,23,20],
+mode: 'lines+markers',
+name: 'États-Unis'
+},
+
+{
+x: years,
+y: [38,37,35,33,30,27,25],
+mode: 'lines+markers',
+name: 'France'
+},
+
+{
+x: years,
+y: [46,44,40,36,32,28,25],
+mode: 'lines+markers',
+name: 'Royaume-Uni'
+},
+
+{
+x: years,
+y: [48,46,44,41,37,32,29],
+mode: 'lines+markers',
+name: 'Japon'
+},
+
+{
+x: years,
+y: [30,33,36,35,33,30,26],
+mode: 'lines+markers',
+name: 'Chine'
+},
+
+{
+x: years,
+y: [34,35,34,32,29,25,23],
+mode: 'lines+markers',
+line: {dash: 'dash'},
+name: 'Moyenne mondiale'
+}
+
+];
+
+const layout = {
+title: 'Prévalence approximative du tabagisme adulte (1960–2020)',
+xaxis: {
+title: 'Années'
+},
+yaxis: {
+title: 'Pourcentage de fumeurs adultes'
+},
+hovermode: 'closest'
+};
+
+Plotly.newPlot('chart', traces, layout, {responsive: true});
+
+</script>
+
+</body>
+</html>
